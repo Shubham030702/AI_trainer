@@ -28,7 +28,7 @@ count = 0
 dir = 0
 while True:
     istrue,frame = capture.read()
-    detector.findPose(frame,False)
+    frame=detector.findPose(frame,False)
     landmarks = detector.findLandmarks(frame,False)
     if len(landmarks)!=0:
         per=1000
@@ -51,8 +51,8 @@ while True:
     ctime = time.time()
     fps = 1/(ctime-ptime)
     ptime = ctime
-    cv.putText(frame,f"FPS = {str(int(fps))}",(30,70),cv.FONT_HERSHEY_COMPLEX,1,(255,0,255),2)
-    cv.putText(frame,f"Curl counter = {int(count)}",(700,70),cv.FONT_HERSHEY_COMPLEX,1,(255,0,255),2)
+    cv.putText(frame,f"FPS = {str(int(fps))}",(30,70),cv.FONT_HERSHEY_COMPLEX,1,(255,255,0),2)
+    cv.putText(frame,f"Curl counter = {int(count)}",(700,70),cv.FONT_HERSHEY_COMPLEX,1,(255,255,0),2)
     cv.imshow("WebCam",frame)
     if cv.waitKey(20) & 0xff==ord('r'):
         count=0

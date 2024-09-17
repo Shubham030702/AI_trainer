@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Sacramento&display=swap" rel="stylesheet">
+    <title>Ai Virtual Trainer</title>
+</head>
+<style>
+    * {
+        margin: 0;
+        padding: 0;
+    }
+
+    body {
+        background-color: rgba(90, 138, 135, 1);
+    }
+
+    .sacramento-regular {
+        font-family: "Sacramento", cursive;
+        font-weight: 400;
+        font-style: normal;
+    }
+
+    .topleft {
+        color: aliceblue;
+        font-size: 26px;
+    }
+
+    .content {
+        width: 98vw;
+        height: 80vh;
+        margin: 5vh auto;
+        display: flex;
+    }
+
+    .pushup,
+    .title,
+    .bicep {
+        width: 33vw;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+
+    .pushup,
+    .bicep {
+        flex-direction: column;
+        font-size: 25px;
+    }
+
+    .circle {
+        width: 18vw;
+        height: 37vh;
+        border: 6px solid aliceblue;
+        border-radius: 50%;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+
+    .titlefont {
+        font-size: 59px;
+        color: aliceblue;
+        transition: transform 0.3s ease;
+    }
+
+    .titlefont:hover {
+        transform: scale(1.2);
+    }
+
+    .lefttitle,.righttitle {
+        transition: transform 0.3s ease;
+        cursor: pointer;
+    }
+
+    .lefttitle:hover,.righttitle:hover {
+        transform: scale(1.2);
+    }
+
+    video {
+        width: 24vw;
+        height: 31vh;
+        border: 2px solid rgb(255, 255, 255);
+    }
+</style>
+
+<body>
+    <h2 class="topleft sacramento-regular">Created by:- Shubham Dangwal</h2>
+    <div class="content">
+        <div class="pushup">
+            <video id="myVideo" muted>
+                <source src="your-video-file.mp4" type="video/mp4">
+                Your browser does not support the video tag.
+            </video>
+            <h2 class="lefttitle sacramento-regular" onclick="pushup()" style="margin-top:2vh; color:white;">Pushup
+                Training</h2>
+        </div>
+        <div class="title">
+            <div class="circle">
+                <h1 class="titlefont sacramento-regular">Ai Trainer</h1>
+            </div>
+        </div>
+        <div class="bicep">
+            <video id="myVideo" muted>
+                <source src="your-video-file.mp4" type="video/mp4">
+                Your browser does not support the video tag.
+            </video>
+            <h2 class="righttitle sacramento-regular" onclick="bicep()" style="margin-top:2vh; color:white;">Bicep
+                Training</h2>
+        </div>
+    </div>
+</body>
+<script>
+    const video = document.getElementById("myVideo");
+
+    video.addEventListener("mouseenter", function () {
+        video.play();
+    });
+
+    video.addEventListener("mouseleave", function () {
+        video.pause();
+    });
+
+    function pushup() {
+        window.location.href = "/pushup";
+    }
+    function bicep() {
+        window.location.href = "/biceps";
+    }
+</script>
+
+</html>
